@@ -86,6 +86,7 @@ const readfiredb = (colname) => {
 
 };
 
+
 $(document).ready(() => {
     userId = sessionStorage.getItem('userid');
     var i =0;
@@ -259,5 +260,22 @@ const comment_map_write = (index) => {
     })
 }
 
+//댓글 처리 - 화면에 보이기
+// 해당 인덱스 (문서) 안에 있는 comment 데이터에 접근 해야함 !
+// 컬럼 값이 지금 시간 보다 낮은 댓글 한개를 뽑아 내야 함..
 
+const comment_map_read = (indexList) => {
+    firedb.collection("dogInfo").where("comment", "==", true)
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+
+}
 

@@ -1,0 +1,24 @@
+.ui-page .ui-header{
+    background-color: rgb(146,178,140);
+    text-shadow: none;
+}
+.ui-page .ui-footer{
+    background-color: rgb(146,178,140);
+    text-shadow: none;
+}
+.form1{
+    padding-top: 50px;
+}
+.wizard3-1{
+    padding-top: 50px;
+}
+#back, #home {
+    background-color: #8bc34a9e;
+    text-shadow: none;
+    font-weight: bold;
+    outline :0;
+    border: none !important;
+}
+#cancel1, #login{
+    background-color:forestgreen;
+}

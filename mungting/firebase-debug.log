@@ -1,0 +1,44 @@
+[debug] [2020-05-06T06:20:48.130Z] ----------------------------------------------------------------------
+[debug] [2020-05-06T06:20:48.131Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve --only hosting
+[debug] [2020-05-06T06:20:48.132Z] CLI Version:   8.2.0
+[debug] [2020-05-06T06:20:48.132Z] Platform:      darwin
+[debug] [2020-05-06T06:20:48.132Z] Node Version:  v12.16.2
+[debug] [2020-05-06T06:20:48.132Z] Time:          Wed May 06 2020 15:20:48 GMT+0900 (GMT+09:00)
+[debug] [2020-05-06T06:20:48.132Z] ----------------------------------------------------------------------
+[debug] [2020-05-06T06:20:48.133Z] 
+[debug] [2020-05-06T06:20:48.140Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-06T06:20:48.141Z] > authorizing via signed-in user
+[debug] [2020-05-06T06:20:48.141Z] [iam] checking project dogmatchapp-6baa6 for permissions ["firebase.projects.get"]
+[debug] [2020-05-06T06:20:48.143Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/dogmatchapp-6baa6:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-05-06T06:20:49.396Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 06 May 2020 06:20:49 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=953","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-06T06:20:49.397Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/dogmatchapp-6baa6  
+ 
+[debug] [2020-05-06T06:20:50.110Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 06 May 2020 06:20:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-06T06:20:50.112Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/dogmatchapp-6baa6/webApps/-/config  
+ 
+[debug] [2020-05-06T06:20:51.646Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 06 May 2020 06:20:51 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: ./public
+[info] ✔  hosting: Local server: http://localhost:5000
+[debug] [2020-05-06T06:44:56.038Z] ----------------------------------------------------------------------
+[debug] [2020-05-06T06:44:56.040Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve --only hosting
+[debug] [2020-05-06T06:44:56.040Z] CLI Version:   8.2.0
+[debug] [2020-05-06T06:44:56.040Z] Platform:      darwin
+[debug] [2020-05-06T06:44:56.040Z] Node Version:  v12.16.2
+[debug] [2020-05-06T06:44:56.041Z] Time:          Wed May 06 2020 15:44:56 GMT+0900 (GMT+09:00)
+[debug] [2020-05-06T06:44:56.041Z] ----------------------------------------------------------------------
+[debug] [2020-05-06T06:44:56.041Z] 
+[debug] [2020-05-06T06:44:56.048Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-06T06:44:56.048Z] > authorizing via signed-in user
+[debug] [2020-05-06T06:44:56.049Z] [iam] checking project dogmatchapp-6baa6 for permissions ["firebase.projects.get"]
+[debug] [2020-05-06T06:44:56.051Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/dogmatchapp-6baa6:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-05-06T06:44:57.136Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 06 May 2020 06:44:56 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=834","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-06T06:44:57.137Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/dogmatchapp-6baa6  
+ 
+[debug] [2020-05-06T06:44:57.646Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 06 May 2020 06:44:57 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-06T06:44:57.647Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/dogmatchapp-6baa6/webApps/-/config  
+ 
+[debug] [2020-05-06T06:44:58.771Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 06 May 2020 06:44:58 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: ./public
+[info] ✔  hosting: Local server: http://localhost:5000

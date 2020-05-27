@@ -1,0 +1,13 @@
+.ui-page .ui-header,.ui-page .ui-footer {
+    background-color: rgb(146,178,140);
+    text-shadow: none;
+}
+
+#back, #home {
+    background-color: #8bc34a9e;
+    text-shadow: none;
+    font-weight: bold;
+    outline :0;
+    border: none !important;
+}
+

@@ -49,7 +49,7 @@ const readfiredb = (colname) => {
                 tagList += '<div class="heart_btn">'
                 tagList += '<a href="javacsript:void(0);" onClick="heart('+doc.data().index+');"><div id ="heart_'+doc.data().index+'"class="sprite_heart_icon_outline" name="39" data-name="heartbeat">'
                 tagList += '</div></a></div>'
-                tagList += '<div class="sprite_bubble_icon"></div>'
+                tagList += '<a href ="#comment_'+doc.data().index+'"><div class="sprite_bubble_icon"></div></a>'
                 tagList += '</div>'
                 tagList += '<div class="right_icon">'
                 tagList += '<div class="sprite_bookmark_outline" data-name="bookmark"></div>'
@@ -71,7 +71,8 @@ const readfiredb = (colname) => {
                 //tagList += '<div class="sprite_small_heart_icon_outline"></div>'
                 //tagList += '</div>'
                 tagList += '</div>'
-                tagList += '<div class="comment_area_'+doc.data().index+'">'
+                tagList += '<a href="javacsript:void(0);" class ="slice_comment" onclick="comment_slice('+doc.data().index+');"><div class="root1">&nbsp;댓글보기</a>';
+                tagList += '<div class="comment_area_'+doc.data().index+'"style="display: none">'
                 tagList += '</div>'
                 tagList += '<div class="comment_field" id="add-comment-post37">'
                 tagList += '<input type="text" id ="comment_'+doc.data().index+'" placeholder="댓글달기...">'
@@ -87,30 +88,16 @@ const readfiredb = (colname) => {
 
 };
 
-
 $(document).ready(() => {
     userId = sessionStorage.getItem('userid');
     var i =0;
     readfiredb('dogInfo');
     confirm_list(userId);
     comment_view();
-    $('#spreadBtn04').click(function(){
-        if($("#hiddenList03").is(":visible")){
-            $("#spreadBtn04").toggleClass("icon-down-dir");
-            $("#hiddenList03").slideUp();
-        }else{
-            $("#spreadBtn04").toggleClass("icon-down-dir");
-            $("#hiddenList03").slideDown();
-        }
-    });
-
-
-
-    //comment_map_read();
 });
 
 
-function heart(index){ // index를 넘겨 받음
+const heart = (index) => { // index를 넘겨 받음
     userId = sessionStorage.getItem('userid');
     firedb.collection("dogInfo").where("index","==",index).get()
         .then(function(querySnapshot){
@@ -223,14 +210,23 @@ const heartList_out = (index,userId) =>{
 }
 
 //날짜, 시간, 분 ,초 받아서 두자리로 만들어 주는 함수
-function pad(number, length){
+const pad = (number, length) => {
     var str = number.toString();
     while(str.length < length) {
         str = '0' + str;
     }
     return str;
 }
+/*
+const comment_area_move = (index) => {
+    var scrollPosition = $("#comment_"+index).offset().top;
+    console.log(scrollPosition)
 
+    $(".comment_field").animate({
+        scrollTop: scrollPosition
+    }, 500);
+}
+*/
 //댓글 처리 - 댓글 쓰기
 const comment_map_write = (index) => {
     user_comment = $("#comment_"+index).val()
@@ -262,7 +258,6 @@ const comment_map_write = (index) => {
         $("#comment_"+index).val('');
         $("#comment_"+index).attr( 'placeholder', '댓글 달기..' );
         comment_view();
-
     })
 }
 
@@ -278,18 +273,23 @@ const comment_view=() =>{
             snapshot.forEach((doc) => {
                 var obj_arrs = Object.values(doc.data().comment);
                 for (var i =0; i<obj_arrs.length;i++) {
-                tagList += '<div class="user_comment"><div id="timer_'+doc.data().index+'">'+obj_arrs[i].userid+' : '+obj_arrs[i].comment+'</div></div>'
+                    tagList += '<div class="user_comment"><div id="timer_'+doc.data().index+'">'+obj_arrs[i].userid+' : '+obj_arrs[i].comment+'</div></div>'
                 }
-                $('.comment_area_'+doc.data().index).html(tagList)
+                $('.comment_area_'+doc.data().index).html(tagList);
                 tagList ='';
             });
-
         });
 }
-function fn_spread(id){
-    var getID = document.getElementById(id);
-    getID.style.display=(getID.style.display=='block') ? 'none' : 'block';
+
+const comment_slice = (index) =>{
+    var submenu = $(".comment_area_"+index);
+    if (submenu.is(":visible")){
+        submenu.slideUp();
+    }else{
+        submenu.slideDown();
+    }
 }
+
 
 
 

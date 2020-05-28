@@ -1,0 +1,5 @@
+.root1:before {
+    content : '\e800';
+    font-family : fontello;
+    padding-left: 20px;
+}

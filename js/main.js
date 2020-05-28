@@ -71,7 +71,8 @@ const readfiredb = (colname) => {
                 //tagList += '<div class="sprite_small_heart_icon_outline"></div>'
                 //tagList += '</div>'
                 tagList += '</div>'
-                tagList += '<div class="timer"><div id="timer_'+doc.data().index+'" style="display:none">doc.data().index</div></div>'
+                tagList += '<div class="comment_area_'+doc.data().index+'">'
+                tagList += '</div>'
                 tagList += '<div class="comment_field" id="add-comment-post37">'
                 tagList += '<input type="text" id ="comment_'+doc.data().index+'" placeholder="댓글달기...">'
                 tagList += '<a href="javacsript:void(0);" onClick="comment_map_write('+doc.data().index+');"><div class="upload_btn m_text" data-name="comment">게시</div></a>'
@@ -90,19 +91,22 @@ const readfiredb = (colname) => {
 $(document).ready(() => {
     userId = sessionStorage.getItem('userid');
     var i =0;
-    firedb.collection("dogInfo")
-        .get()
-        .then((snapshot) => {
-            snapshot.forEach((doc) => {
-                indexList.push(doc.data().index)
-                console.log(indexList[i])
-                i += 1
+    readfiredb('dogInfo');
+    confirm_list(userId);
+    comment_view();
+    $('#spreadBtn04').click(function(){
+        if($("#hiddenList03").is(":visible")){
+            $("#spreadBtn04").toggleClass("icon-down-dir");
+            $("#hiddenList03").slideUp();
+        }else{
+            $("#spreadBtn04").toggleClass("icon-down-dir");
+            $("#hiddenList03").slideDown();
+        }
+    });
 
-            })
-        })
-     readfiredb('dogInfo');
-     confirm_list(userId);
-     console.log(indexList)
+
+
+    //comment_map_read();
 });
 
 
@@ -257,6 +261,8 @@ const comment_map_write = (index) => {
         console.log("Document successfully update!!");
         $("#comment_"+index).val('');
         $("#comment_"+index).attr( 'placeholder', '댓글 달기..' );
+        comment_view();
+
     })
 }
 
@@ -264,18 +270,29 @@ const comment_map_write = (index) => {
 // 해당 인덱스 (문서) 안에 있는 comment 데이터에 접근 해야함 !
 // 컬럼 값이 지금 시간 보다 낮은 댓글 한개를 뽑아 내야 함..
 
-const comment_map_read = (indexList) => {
-    firedb.collection("dogInfo").where("comment", "==", true)
+const comment_view=() =>{
+    let tagList = '';
+    firedb.collection('dogInfo')
         .get()
-        .then(function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-                // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
+        .then((snapshot) => {
+            snapshot.forEach((doc) => {
+                var obj_arrs = Object.values(doc.data().comment);
+                for (var i =0; i<obj_arrs.length;i++) {
+                tagList += '<div class="user_comment"><div id="timer_'+doc.data().index+'">'+obj_arrs[i].userid+' : '+obj_arrs[i].comment+'</div></div>'
+                }
+                $('.comment_area_'+doc.data().index).html(tagList)
+                tagList ='';
             });
-        })
-        .catch(function(error) {
-            console.log("Error getting documents: ", error);
-        });
 
+        });
 }
+function fn_spread(id){
+    var getID = document.getElementById(id);
+    getID.style.display=(getID.style.display=='block') ? 'none' : 'block';
+}
+
+
+
+
+
 

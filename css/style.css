@@ -276,19 +276,18 @@ body{
     border-bottom: 1px solid rgba(0,0,0,0.09);
     padding: 10px 20px;
 }
-.timer2{
-    font-size: 10px;
+.user_comment{
+    font-size: 13px;
     letter-spacing: 0.2px;
     color:#999;
-    border-bottom: 1px solid rgba(0,0,0,0.09);
-    padding: 10px 20px;
+    padding: 6px 20px;
 }
-
 
 .contents .comment_field{
     min-height:56px;
     padding: 0 20px;
     position: relative;
+    border-top: 1px solid rgba(0,0,0,0.09);
 }
 
 

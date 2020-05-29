@@ -3,3 +3,14 @@
     font-family : fontello;
     padding-left: 20px;
 }
+.delete{
+    display: inline;
+    float: right;
+}
+.delete1{
+    display: inline;
+}
+.delete1:before {
+    content : '\e802';
+    font-family: fontello;
+}

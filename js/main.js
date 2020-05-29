@@ -13,6 +13,8 @@ firebase.initializeApp(firebaseConfig);
 let firedb = firebase.firestore();
 var likeList = [];
 var indexList = new Array();
+let count_comment = 1; // 홈페이지가 로드 될 때 마다 전체 댓글의 수를 가져와 댓글으 인덱스를 지정해 준다.
+
 
 const readfiredb = (colname) => {
     let tagList = '';
@@ -214,16 +216,7 @@ const pad = (number, length) => {
     }
     return str;
 }
-/*
-const comment_area_move = (index) => {
-    var scrollPosition = $("#comment_"+index).offset().top;
-    console.log(scrollPosition)
 
-    $(".comment_field").animate({
-        scrollTop: scrollPosition
-    }, 500);
-}
-*/
 //댓글 처리 - 댓글 쓰기
 const comment_map_write = (index) => {
     user_comment = $("#comment_"+index).val()
@@ -248,13 +241,15 @@ const comment_map_write = (index) => {
     //json 키 값 다이나믹 값으로 하는 방법
     data[key] = {
         userid : userId,
-        comment : user_comment
+        comment : user_comment,
+        comment_index : count_comment
     };
     firedb.collection("dogInfo").doc(new_index).update(data).then(function(){
         console.log("Document successfully update!!");
         $("#comment_"+index).val('');
         $("#comment_"+index).attr( 'placeholder', '댓글 달기..' );
         comment_view();
+        count_comment = 1; //comment_count에 있던 값을 초기화 해줌 
     })
 }
 
@@ -270,7 +265,8 @@ const comment_view=() =>{
             snapshot.forEach((doc) => {
                 var obj_arrs = Object.values(doc.data().comment);
                 for (var i =0; i<obj_arrs.length;i++) {
-                    tagList += '<div class="user_comment"><div id="timer_'+doc.data().index+'">'+obj_arrs[i].userid+' : '+obj_arrs[i].comment+'</div></div>'
+                    tagList += '<div class="user_comment"><div id="timer_'+doc.data().index+'" style=" display: inline;">'+obj_arrs[i].userid+' : '+obj_arrs[i].comment+'</div><div class="delete"><div class="delete1"></div></div></div>'
+                    count_comment+=1; //전체 댓글의 개수를 알아보기 위함
                 }
                 $('.comment_area_'+doc.data().index).html(tagList);
                 tagList ='';
@@ -278,6 +274,9 @@ const comment_view=() =>{
         });
 }
 
+
+
+//commnet view 슬라이드 하는 함수
 const comment_slice = (index) =>{
     var submenu = $(".comment_area_"+index);
     if (submenu.is(":visible")){

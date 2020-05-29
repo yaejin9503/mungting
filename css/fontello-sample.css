@@ -3,10 +3,11 @@
     font-family : fontello;
     padding-left: 20px;
 }
-.delete{
+.delete_inline{
     display: inline;
     float: right;
 }
+
 .delete1{
     display: inline;
 }

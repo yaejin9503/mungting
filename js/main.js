@@ -93,6 +93,7 @@ $(document).ready(() => {
     readfiredb('dogInfo');
     confirm_list(userId);
     comment_view();
+    comment_delete_Displaybutton(userId);
 });
 
 
@@ -249,7 +250,8 @@ const comment_map_write = (index) => {
         $("#comment_"+index).val('');
         $("#comment_"+index).attr( 'placeholder', '댓글 달기..' );
         comment_view();
-        count_comment = 1; //comment_count에 있던 값을 초기화 해줌 
+        count_comment = 1; //comment_count에 있던 값을 초기화 해줌
+        comment_delete_Displaybutton(userId);
     })
 }
 
@@ -265,7 +267,7 @@ const comment_view=() =>{
             snapshot.forEach((doc) => {
                 var obj_arrs = Object.values(doc.data().comment);
                 for (var i =0; i<obj_arrs.length;i++) {
-                    tagList += '<div class="user_comment"><div id="timer_'+doc.data().index+'" style=" display: inline;">'+obj_arrs[i].userid+' : '+obj_arrs[i].comment+'</div><div class="delete"><div class="delete1"></div></div></div>'
+                    tagList += '<div class="user_comment"><div id="timer_'+doc.data().index+'" style=" display: inline;">'+obj_arrs[i].userid+' : '+obj_arrs[i].comment+'</div><div class ="delete_inline"><div class="delete_'+obj_arrs[i].comment_index+'" style="display:none";><div class="delete1"></div></div></div></div>'
                     count_comment+=1; //전체 댓글의 개수를 알아보기 위함
                 }
                 $('.comment_area_'+doc.data().index).html(tagList);
@@ -273,8 +275,31 @@ const comment_view=() =>{
             });
         });
 }
-
-
+//댓글 삭제
+// 1. user 본인인지 확인한다.
+// 2. 본인이 아니라면 x표시는 안하게 하고
+// 3. 본인이 맞다면 화면에 x를 표시한다.
+// 4. 화면에 x가 표시되면 해당 댓글 인덱스를 찾아서 실제 데이터를 지우고
+// 5. 화면상에 다시 업데이트 될 수 있도록 댓글창 함수를 불러온다.
+const comment_delete_Displaybutton = (userId) => {
+    let tagList = '';
+    firedb.collection("dogInfo")
+        .get()
+        .then((snapshot) => {
+            snapshot.forEach((doc) => {
+                var obj_arrs = Object.values(doc.data().comment);
+                //문서 1일 때의 댓글의 length 인디..
+                for (var i =0; i<obj_arrs.length;i++) {
+                    if(obj_arrs[i].userid != userId){//비교가 잘 이루어 짐 아이디가 같을 때
+                        console.log("같을 때 : ",obj_arrs[i].userid);
+                        $(".delete_"+obj_arrs[i].comment_index).css("display","none");
+                    }else{
+                        $(".delete_"+obj_arrs[i].comment_index).css("display","block");
+                    }
+                }
+            })
+    })
+}
 
 //commnet view 슬라이드 하는 함수
 const comment_slice = (index) =>{

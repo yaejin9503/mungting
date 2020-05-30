@@ -266,8 +266,12 @@ const comment_view=() =>{
         .then((snapshot) => {
             snapshot.forEach((doc) => {
                 var obj_arrs = Object.values(doc.data().comment);
+                var document_index = doc.data().index;
                 for (var i =0; i<obj_arrs.length;i++) {
-                    tagList += '<div class="user_comment"><div id="timer_'+doc.data().index+'" style=" display: inline;">'+obj_arrs[i].userid+' : '+obj_arrs[i].comment+'</div><div class ="delete_inline"><div class="delete_'+obj_arrs[i].comment_index+'" style="display:none";><div class="delete1"></div></div></div></div>'
+                    tagList += '<div class="user_comment">'
+                    tagList +='<div id="timer_'+doc.data().index+'" style=" display: inline;">'+obj_arrs[i].userid+' : '+obj_arrs[i].comment+'</div><div class ="delete_inline">'
+                    tagList +='<div class="delete_'+obj_arrs[i].comment_index+'" style="display:none";>';
+                    tagList += '<a href="javacsript:void(0);" onClick="comment_delete('+obj_arrs[i].comment_index+','+document_index+');"><div class="delete1"></div></a></div></div></div>'
                     count_comment+=1; //전체 댓글의 개수를 알아보기 위함
                 }
                 $('.comment_area_'+doc.data().index).html(tagList);
@@ -276,9 +280,9 @@ const comment_view=() =>{
         });
 }
 //댓글 삭제
-// 1. user 본인인지 확인한다.
-// 2. 본인이 아니라면 x표시는 안하게 하고
-// 3. 본인이 맞다면 화면에 x를 표시한다.
+// 1. user 본인인지 확인한다. o
+// 2. 본인이 아니라면 x표시는 안하게 하고 o
+// 3. 본인이 맞다면 화면에 x를 표시한다. o
 // 4. 화면에 x가 표시되면 해당 댓글 인덱스를 찾아서 실제 데이터를 지우고
 // 5. 화면상에 다시 업데이트 될 수 있도록 댓글창 함수를 불러온다.
 const comment_delete_Displaybutton = (userId) => {
@@ -291,7 +295,6 @@ const comment_delete_Displaybutton = (userId) => {
                 //문서 1일 때의 댓글의 length 인디..
                 for (var i =0; i<obj_arrs.length;i++) {
                     if(obj_arrs[i].userid != userId){//비교가 잘 이루어 짐 아이디가 같을 때
-                        console.log("같을 때 : ",obj_arrs[i].userid);
                         $(".delete_"+obj_arrs[i].comment_index).css("display","none");
                     }else{
                         $(".delete_"+obj_arrs[i].comment_index).css("display","block");
@@ -299,6 +302,40 @@ const comment_delete_Displaybutton = (userId) => {
                 }
             })
     })
+
+
+}
+const comment_delete = (comment_index, document_index) => {
+    var comment_index = comment_index.toString();
+    var document_index = document_index.toString();
+    var userId = sessionStorage.getItem('userid');
+
+
+    var dogInfoRef = firedb.collection('dogInfo').doc(document_index);
+
+    // 해당하는 value값을 찾는건 select 문으로 찾고 delete는 밑에 값으로 하쟈
+    // Remove the 'capital' field from the document
+    var removeCapital = dogInfoRef.update({
+        capital: firebase.firestore.FieldValue.delete()
+        // key : value ==> value
+    });
+
+
+    firedb.collection("dogInfo")
+        .get()
+        .then((snapshot) => {
+            snapshot.forEach((doc) => {
+                var obj_arrs = Object.values(doc.data().comment);
+                //문서 1일 때의 댓글의 length 인디..
+                for (var i =0; i<obj_arrs.length;i++) {
+                    if(obj_arrs[i].userid != userId){// 내 아이디 일 때만 
+
+                    }else{
+
+                    }
+                }
+            })
+        })
 }
 
 //commnet view 슬라이드 하는 함수

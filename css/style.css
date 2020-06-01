@@ -288,6 +288,10 @@ body{
     font-size: 13px;
     text-decoration:none;
 }
+.delete_icon{
+    text-decoration:none;
+}
+
 .slice_comment:hover{
     color : darkgoldenrod;
     text-decoration:none;

@@ -271,7 +271,7 @@ const comment_view=() =>{
                     tagList += '<div class="user_comment">'
                     tagList +='<div id="timer_'+doc.data().index+'" style=" display: inline;">'+obj_arrs[i].userid+' : '+obj_arrs[i].comment+'</div><div class ="delete_inline">'
                     tagList +='<div class="delete_'+obj_arrs[i].comment_index+'" style="display:none";>';
-                    tagList += '<a href="javacsript:void(0);" onClick="comment_delete('+obj_arrs[i].comment_index+','+document_index+');"><div class="delete1"></div></a></div></div></div>'
+                    tagList += '<a href="javacsript:void(0);" class ="delete_icon" onClick="comment_delete('+obj_arrs[i].comment_index+','+document_index+');"><div class="delete1"></div></a></div></div></div>'
                     count_comment+=1; //전체 댓글의 개수를 알아보기 위함
                 }
                 $('.comment_area_'+doc.data().index).html(tagList);
@@ -328,7 +328,7 @@ const comment_delete = (comment_index, document_index) => {
                 var obj_arrs = Object.values(doc.data().comment);
                 //문서 1일 때의 댓글의 length 인디..
                 for (var i =0; i<obj_arrs.length;i++) {
-                    if(obj_arrs[i].userid != userId){// 내 아이디 일 때만 
+                    if(obj_arrs[i].userid != userId){// 내 아이디 일 때만
 
                     }else{
 

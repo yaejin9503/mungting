@@ -17,10 +17,10 @@
     //제이쿼리를 사용한다.
     $(document).ready(function(){
     //로그인버튼 눌렀을 때
-      $(document).on('click','.login',function(){
+      $(document).on('click','.submit_btn',function(){
 
-        var email = $('#userid').val();
-        var password = $('#password').val();
+        var email = $('#user_name').val();
+        var password = $('#user_password').val();
 
         var user = db.collection('User').doc(email);
         user.get().then(function(doc){

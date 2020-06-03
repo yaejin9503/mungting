@@ -95,7 +95,7 @@ body {
 
 .sprite_insta_big_logo {
     display: inline-block;
-    background: url('../imgs/background02.png') no-repeat -98px -150px;
+    background: url('img/mungting_logo.png');
     width: 175px;
     height: 51px;
 }

@@ -317,7 +317,8 @@ const comment_delete = (comment_index, document_index) => {
     // Remove the 'capital' field from the document
     var removeCapital = dogInfoRef.update({
         capital: firebase.firestore.FieldValue.delete()
-        // key : value ==> value
+        // capital 자리에 댓글을 등록한 시간을 넣어둔 key값을 가져와야 함.
+
     });
 
 

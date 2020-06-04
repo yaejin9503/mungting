@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <title>mungting</title>
+
+    <script src="jquerymobile/jquery-1.11.1.min.js"></script>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="shortcut icon" href="img/dogmatch-logo.png">
+
+</head>
+<body>
+
+
+<section id="container">
+    <header id="header">
+        <section class="inner">
+            <h1 class="logo">
+                <a href="index.html">
+                    <div class="sprite_insta_icon"><img class="new_logo" src="img/mungting_logo.png"></div>
+                </a>
+            </h1>
+
+            <div class="search_box">
+                <input type="text" placeholder="검색" id="search-field">
+
+                <div class="fake_field">
+                    <span class="sprite_small_search_icon"></span>
+                    <span>검색</span>
+                </div>
+            </div>
+
+
+        </section>
+    </header>
+
+
+    <div id="main_container">
+        <div class="form_container">
+
+            <div class="form">
+                <h1 class="sprite_insta_big_logo title"></h1>
+
+                <form action="#">
+                    <p class="login_user_name">
+                        <label for="user_name">Email</label>
+                        <input type="text" id="user_name">
+                    </p>
+
+                    <p class="login_user_password">
+                        <label for="user_password">Password</label>
+                        <input type="password" id="user_password">
+                    </p>
+
+                    <input type="submit" id="submit_btn" value="로그인" class="submit_btn">
+                </form>
+            </div>
+
+            <div class="bottom_box">
+                <div>
+                    <span>아이디가 없으신가요?</span><a href="#">회원가입</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+
+<!--data 가져올 때 필요한 javascript-->
+<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
+
+<!--login.js 파-->
+<script src="js/login.js"></script>
+</body>
+</html>

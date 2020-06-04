@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pet</title>
+
+    <link rel="stylesheet" href="jquerymobile/jquery.mobile-1.4.5.min.css"/>
+    <script src="jquerymobile/jquery-1.11.1.min.js"></script>
+    <script src="jquerymobile/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+    .ui-page .ui-header{
+    background-color: rgb(146,178,140);
+    text-shadow: none;
+    }
+    .ui-page .ui-footer{
+    background-color: rgb(146,178,140);
+    text-shadow: none;
+    }
+    #chatting, #golist {
+    background-color: #8bc34a9e;
+    text-shadow: none;
+    font-weight: bold;
+    outline :0;
+    border: none !important;
+    }
+    #back, #home {
+    background-color: #8bc34a9e;
+    text-shadow: none;
+    font-weight: bold;
+    outline :0;
+    border: none !important;
+    }
+    </style>
+    <!-- 사용자 정의 자바스크립트 파일 -->
+
+</head>
+<body>
+<div data-role="page" id="mainPage">
+    <div data-role="header" data-position="fixed">
+        <a href="#" id="back" data-icon="back" data-rel="back" data-direction="reverse">Back</a>
+        <h1>멍팅</h1>
+        <a href="#index" id ="home" data-icon="home" data-iconpos="notext">Home</a>
+    </div>
+    <div data-role="content">
+        <div class="ui-body ui-body-e">
+            <div id="sangse" style="text-align:center">
+                <div class="ui-bar ui-bar-a">
+                    <div class="anInfo"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ui-body">
+        <fieldset class="ui-grid-a">
+            <div class="ui-block-a">
+                <input type="reset" data-rel="back" id="golist" value="삭제하기"  >
+            </div>
+            <div class="ui-block-b">
+                <input type="button" id="chatting" value="수정하기">
+            </div>
+        </fieldset>
+    </div>
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <h4>dogmatch!!</h4>
+    </div>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+<!-- Firebase 기본 SDK -->
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<!--data 가져올 때 필요한 CDN-->
+<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
+<!--사진을 저장하고 불러올 때 필요한 CDN-->
+<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-storage.js"></script>
+
+<script src="js/sangse.js"> </script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pet</title>
+
+    <link rel="stylesheet" href="jquerymobile/jquery.mobile-1.4.5.min.css"/>
+    <script src="jquerymobile/jquery-1.11.1.min.js"></script>
+    <script src="jquerymobile/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="css/register.css"/>
+</head>
+<body>
+    <div data-role="page" id="page2">    
+        <div data-role="header" data-position="fixed">
+            <a href="page1" id="back" data-icon="back" data-rel="back" data-direction="reverse">Back</a>
+            <h1>멍팅 회원가입</h1>
+            <a href="#page0" id="home" data-icon="home" data-iconpos="notext">Home</a>
+        </div>
+        <div data-role="content">
+            <!-- <img src="img/dog.png" > -->
+            <form  name="join"  method="post" onsubmit="return validate();"  >
+                <h3 style="text-align: center;">회원가입</h3>
+                <div class="ui-body ui-body-a gap" >
+                    
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" name="email" placeholder="예) google@gmail.com"  style="width: 200px">
+                    <br/>
+                    
+                    <label for="passwrod">비밀번호</label>
+                    <input type="password" id="password" name="password"  placeholder="※4-12자의 영문 대소문자와 숫자만">
+                    
+                    <label for="checkpw">비밀번호확인</label>
+                    <input type="password" id="checkpw" name="checkpw" placeholder="※4-12자의 영문 대소문자와 숫자만"><br/> 
+                    
+                    <label for="name">이름</label>
+                    <input type="text" id="name" name="name"  placeholder="홍길동"><br/>
+                    
+                    <label for="gender">성별</label>
+                    <select name="gender" id="gender">
+                        <option class="small_info" disabled> 나는 어떤 성별일까요</option>
+                        <option value="female" >여자</option>
+                        <option value="male">남자</option>
+                    </select>
+
+                    
+               
+                <div class="ui-body">
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <input type="reset" data-rel="back"  id="reEnter" value="다시입력"  >
+                        </div>
+                        <div class="ui-block-b">
+                            <input type="submit" id="SignUp" value="회원가입"  >
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+        <div data-role="footer" data-position="fixed" >
+            <h4>dogmatch!</h4>
+        </div>
+    </div>
+<!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+
+<!-- 사용자 정의 자바스크립트 파일 -->
+<!-- <script src="dbHandle.js"></script> -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+
+<!--data 가져올 때 필요한 javascript-->
+<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
+<script src="https://dogmatchapp-6baa6.firebaseapp.com/__/auth/action?mode=<action>&oobCode=<code>"></script>
+
+<!--register js 파일-->
+<script defer src="./js/init-firebase.js"></script>
+
+<script src="js/register.js"></script>
+
+</body>
+</html>

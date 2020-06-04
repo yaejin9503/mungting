@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0"/>
+    <title>MyPage</title>
+
+    <link rel="stylesheet" href="jquerymobile/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/mypage.css"/>
+<style>
+.ui-page .ui-header, .ui-page .ui-footer {
+    background-color: rgb(146,178,140);
+    text-shadow: none;
+}
+
+#back{
+    background-color: #8bc34a9e;
+    text-shadow: none;
+    font-weight: bold;
+    outline :0;
+    border: none !important;
+}
+</style>
+</head>
+<body>
+<div data-role="page" id="mypage">
+    <div data-role="header" data-position="fixed">
+        <a href="#" id ="back" data-icon="back" data-rel="back" data-direction="reverse">Back</a>
+        <h1>mypage</h1>
+    </div>
+    <div data-role="content">
+        <form method="get" name="mypageform">
+            <h3>나와 맞는 반려동물 찾기</h3>
+            <div class="ui-body ui-body-a gap" id="animals">
+                <br/>
+                어떤 반려동물을 원하시나요? <span class="small_info">*중복선택 가능</span>
+                <label id="doginputlabel"><input id="doginput" type="checkbox" value="dog" data-mini="true"/>강아지</label>
+                <label id="catinputlabel"><input id="catinput" type="checkbox" value="cat" data-mini="true"/>고양이</label>
+                <label id="etcinputlabel"><input id="etcinput" type="checkbox" value="etc" data-mini="true"/>기타</label>
+                <br/>
+                어떤 종을 원하시나요? <span class="small_info">*중복선택 가능</span>
+                <p class="selected_spices">
+                    <span class="span_selected">믹스<span class="span_close">&times;</span></span>
+                </p>
+                <select id="spices">
+                    <option class="small_info" disabled> 원하시는 종을 선택해주세요</option>
+                    <option value="믹스견">믹스</option>
+                    <option value="진돗개">진돗개</option>
+                    <option value="사모예드">사모예드</option>
+                </select>
+                <br/>
+            </div>
+            <div calss="ui-body">
+                <fieldset class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <input type="reset" id="mypagecancel" value="초기화"/>
+                    </div>
+                    <div class="ui-block-b">
+                        <input type="button" id="mypagesave" value="저장"/>
+                    </div>
+                </fieldset>
+            </div>
+        </form>
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <h4>dogmatch!</h4>
+    </div>
+
+    </div>
+</div>
+<script src="jquerymobile/jquery-1.11.1.min.js"></script>
+<script src="jquerymobile/jquery.mobile-1.4.5.min.js"></script>
+<!-- Firebase 기본 SDK -->
+<script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase.js"></script>
+<!-- Firebase App SDK -->
+<script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+<!-- Firebase Database SDK -->
+<script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+<!-- Firebase 실시간 저장소 SDK -->
+<script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+<!-- Firebase storage SDK -->
+<script defer src = "https://www.gstatic.com/firebasejs/6.2.0/firebase-storage.js"></script>
+ Initialize Firebase
+<script defer src="./js/init-firebase.js"></script>
+<script src="js/mypage.js"></script>
+</body>
+</html>
